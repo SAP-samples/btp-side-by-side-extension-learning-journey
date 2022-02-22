@@ -1,0 +1,24 @@
+{
+  "name": "risk-management",
+  "version": "1.0.0",
+  "description": "Template for the the SAP Extension Suite Learning Journey",
+  "author": "m.haug@sap.com",
+  "license": "SAP SAMPLE CODE LICENSE",
+  "repository": "https://github.com/SAP-samples/sap-learning-extension-suite",
+  "engines": {
+    "node": ">=14"
+  },
+  "private": true,
+  "dependencies": {
+    "@sap/cds": "5.1.5",
+    "@sap/cds-dk": "4.1.5",
+    "express": "^4"
+  },
+  "devDependencies": {
+    "@sap/ux-specification": "^1.96.2",
+    "sqlite3": "^5.0.2"
+  },
+  "scripts": {
+    "start": "cds run"
+  }
+}
