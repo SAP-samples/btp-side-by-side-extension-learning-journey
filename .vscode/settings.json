@@ -1,0 +1,9 @@
+{
+  "files.exclude": {
+    "**/.gitignore": false,
+    "**/.gitkeep": true,
+    "**/.git": true,
+    "**/.vscode": true,
+    "**/.npmrc": true
+  }
+}
