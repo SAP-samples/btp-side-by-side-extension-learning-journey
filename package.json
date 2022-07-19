@@ -15,10 +15,12 @@
     "express": "^4"
   },
   "devDependencies": {
+    "@sap/ux-specification": "^1.102.1",
     "sqlite3": "^5.0.4"
   },
   "scripts": {
-    "start": "cds run"
+    "start": "cds run",
+    "watch-risks": "cds watch --open risks/webapp/index.html?sap-ui-xx-viewCache=false"
   },
   "eslintConfig": {
     "extends": "eslint:recommended",
@@ -52,5 +54,8 @@
         "model": "srv\\external\\API_BUSINESS_PARTNER"
       }
     }
-  }
+  },
+  "sapux": [
+    "app/risks"
+  ]
 }
