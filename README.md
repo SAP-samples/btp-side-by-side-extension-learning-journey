@@ -1,3 +1,5 @@
+[![REUSE status](https://api.reuse.software/badge/github.com/SAP-samples/extension-suite-learning-journey)](https://api.reuse.software/info/github.com/SAP-samples/extension-suite-learning-journey)
+
 # Getting Started
 
 Welcome to your new project.
@@ -10,7 +12,7 @@ File or Folder | Purpose
 `db/` | your domain models and data go here
 `srv/` | your service models and code go here
 `package.json` | project metadata and configuration# Welcome to the SAP Extension Suite Learning Journey
-[![REUSE status](https://api.reuse.software/badge/github.com/SAP-samples/extension-suite-learning-journey)](https://api.reuse.software/info/github.com/SAP-samples/extension-suite-learning-journey)
+
 
 Welcome to this repository for the learning journey "Developing with SAP Extension Suite" published on [SAP Learning](https://learning.sap.com/learning-journey/developing-with-sap-extension-suite). We provide a starting template for the exercises as well as a dedicated branch for each exercise with its final solution.
 
