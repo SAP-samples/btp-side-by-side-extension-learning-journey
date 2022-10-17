@@ -7,6 +7,7 @@ default-*.json
 gen/
 node_modules/
 target/
+*.sqlite
 
 # Web IDE, App Studio
 .che/
@@ -26,7 +27,7 @@ mta_archives/
 *.flattened-pom.xml
 
 # IDEs
-# .vscode
-# .idea
+.vscode/
+.idea
 
 .env
