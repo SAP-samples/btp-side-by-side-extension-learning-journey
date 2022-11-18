@@ -1,7 +1,7 @@
 Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
-Upstream-Name: extension-suite-learning-journey
+Upstream-Name: sap-btp-side-by-side-extension-learning-journey
 Upstream-Contact: Markus Haug <m.haug@sap.com>
-Source: https://github.com/sap-samples/extension-suite-learning-journey
+Source: https://github.com/sap-samples/sap-btp-side-by-side-extension-learning-journey
 Disclaimer: The code in this project may include calls to APIs (“API Calls”) of
  SAP or third-party products or services developed outside of this project
  (“External Products”).
