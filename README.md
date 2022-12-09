@@ -11,7 +11,7 @@ You can complete each of the exercises using your SAP BTP Free Tier account. In 
 To get started with the first exercise, simply run the following commands in your terminal:
 
 ```sh
-git clone https://github.com/SAP-samples/extension-suite-learning-journey
+git clone https://github.com/SAP-samples/btp-side-by-side-extension-learning-journey
 ```
 
 We recommend to follow the instructions in the [learning journey](https://learning.sap.com/learning-journey/building-side-by-side-extensions-on-sap-btp) to get started.
@@ -25,7 +25,8 @@ git checkout <branch>
 
 ## Known Issues
 
-Please post your issues in our [SAP BTP Learning Group](https://groups.community.sap.com/t5/sap-btp-learning/gh-p/SAP-BTP-Learning).
+1. Please check the [Troubleshooting Guide](./TROUBLESHOOTING.md). Fixes for known issues are listed there.
+2. If you need support, please post your issues in our [SAP BTP Learning Group](https://groups.community.sap.com/t5/sap-btp-learning/gh-p/SAP-BTP-Learning).
 
 ## How to obtain support
 
