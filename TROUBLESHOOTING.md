@@ -32,6 +32,32 @@ npm i @sap/cds-dk && npm i @sap/cds && npm update
 
 Verify your cds version again with ```cds -v```.
 
+## Issue: BusinessPartner search help on object page not working due to odata count=true
+
+If your business partner search help is not working on the object page, then this is due to an issue with an OData parameter in the query.
+
+### Solution:
+
+In `risk-service.js` adjust the event handler as follows:
+
+```js
+ this.on("READ", BusinessPartners, async (req) => {
+        // The API Sandbox returns alot of business partners with empty names.
+        // We don't want them in our application
+        req.query.where("LastName <> '' and FirstName <> '' ");
+        
+        // --> ADD THIS LINE TO REMOVE THE COUNT PARAMETER
+        req.query.SELECT.count = false;
+
+        return await BPsrv.transaction(req).send({
+            query: req.query,
+            headers: {
+                apikey: process.env.apikey,
+            },
+        });
+    });
+```
+
 ## Issue: NPM can't finde a package / npm package not in registry
 
 If you see an error like this in the SAP Business Application Studio for any of the required packages, then please follow the steps below:
