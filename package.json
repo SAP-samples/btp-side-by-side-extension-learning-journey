@@ -10,7 +10,7 @@
   },
   "private": true,
   "dependencies": {
-    "@sap-cloud-sdk/http-client": "^2.5.0",
+    "@sap-cloud-sdk/http-client": "^3.2.0",
     "@sap/cds": "^6",
     "express": "^4"
   },
