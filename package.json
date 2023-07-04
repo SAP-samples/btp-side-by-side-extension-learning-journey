@@ -11,7 +11,7 @@
   "private": true,
   "dependencies": {
     "@sap-cloud-sdk/http-client": "^2.5.0",
-    "@sap/cds": "^6",
+    "@sap/cds": "^7",
     "express": "^4"
   },
   "devDependencies": {
