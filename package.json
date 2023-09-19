@@ -1,56 +1,26 @@
 {
   "name": "risk-management",
-  "version": "2.0.0",
+  "version": "3.0.0",
   "description": "Template for the Learning Journey Building side-by-side extensions on SAP BTP",
   "author": "m.haug@sap.com",
   "license": "SAP SAMPLE CODE LICENSE",
   "repository": "https://github.com/SAP-samples/sap-learning-extension-suite",
-  "engines": {
-    "node": ">=14"
-  },
-  "private": true,
   "dependencies": {
-    "@sap-cloud-sdk/http-client": "^2.5.0",
-    "@sap/cds": "^6",
-    "express": "^4",
-    "@sap/cds-dk": "^6"
+    "@sap-cloud-sdk/http-client": "2.15.0",
+    "@sap/cds": "^7",
+    "express": "^4"
   },
   "devDependencies": {
-    "sqlite3": "^5.0.4"
+    "@cap-js/sqlite": "^1"
   },
   "scripts": {
-    "start": "cds run"
-  },
-  "eslintConfig": {
-    "extends": "eslint:recommended",
-    "env": {
-      "es2020": true,
-      "node": true,
-      "jest": true,
-      "mocha": true
-    },
-    "globals": {
-      "SELECT": true,
-      "INSERT": true,
-      "UPDATE": true,
-      "DELETE": true,
-      "CREATE": true,
-      "DROP": true,
-      "CDL": true,
-      "CQL": true,
-      "CXL": true,
-      "cds": true
-    },
-    "rules": {
-      "no-console": "off",
-      "require-atomic-updates": "off"
-    }
+    "start": "cds-serve"
   },
   "cds": {
     "requires": {
       "API_BUSINESS_PARTNER": {
         "kind": "odata-v2",
-        "model": "srv\\external\\API_BUSINESS_PARTNER"
+        "model": "srv/external/API_BUSINESS_PARTNER"
       }
     }
   }
