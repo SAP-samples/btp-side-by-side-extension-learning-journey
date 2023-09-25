@@ -11,10 +11,12 @@
     "express": "^4"
   },
   "devDependencies": {
-    "@cap-js/sqlite": "^1"
+    "@cap-js/sqlite": "^1",
+    "@sap/ux-specification": "^1.108.14"
   },
   "scripts": {
-    "start": "cds-serve"
+    "start": "cds-serve",
+    "watch-risk-management": "cds watch --open risk-management/webapp/index.html?sap-ui-xx-viewCache=false"
   },
   "cds": {
     "requires": {
@@ -23,5 +25,8 @@
         "model": "srv/external/API_BUSINESS_PARTNER"
       }
     }
-  }
+  },
+  "sapux": [
+    "app/risk-management"
+  ]
 }
