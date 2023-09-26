@@ -13,13 +13,13 @@
     "@sap-cloud-sdk/http-client": "^2.5.0",
     "@sap/cds": "^6",
     "express": "^4",
-    "@sap/cds-dk": "^6"
+    "@sap/cds-dk": "^7"
   },
   "devDependencies": {
     "sqlite3": "^5.0.4"
   },
   "scripts": {
-    "start": "cds run"
+    "start": "cds-serve"
   },
   "eslintConfig": {
     "extends": "eslint:recommended",
@@ -52,6 +52,9 @@
         "kind": "odata-v2",
         "model": "srv\\external\\API_BUSINESS_PARTNER"
       }
+    },
+    "hana": {
+      "deploy-format": "hdbtable"
     }
   }
 }
