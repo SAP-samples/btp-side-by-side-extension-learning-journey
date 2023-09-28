@@ -12,14 +12,16 @@
   "dependencies": {
     "@sap-cloud-sdk/http-client": "^2.5.0",
     "@sap/cds": "^6",
-    "express": "^4",
-    "@sap/cds-dk": "^7"
+    "@sap/cds-dk": "^7",
+    "express": "^4"
   },
   "devDependencies": {
+    "@sap/ux-specification": "^1.102.26",
     "sqlite3": "^5.0.4"
   },
   "scripts": {
-    "start": "cds-serve"
+    "start": "cds-serve",
+    "watch-risks": "cds watch --open risks/webapp/index.html?sap-ui-xx-viewCache=false"
   },
   "eslintConfig": {
     "extends": "eslint:recommended",
@@ -56,5 +58,8 @@
     "hana": {
       "deploy-format": "hdbtable"
     }
-  }
+  },
+  "sapux": [
+    "app/risks"
+  ]
 }
