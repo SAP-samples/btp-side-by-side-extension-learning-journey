@@ -4,7 +4,7 @@ Dear Learner,
 
 due to dependecies or product updates, you could potentially run into some issues from time to time.
 
-Before posting a question in our [SAP BTP Learning Group](https://groups.community.sap.com/t5/sap-btp-learning/gh-p/SAP-BTP-Learning), please go through this troubleshooting guide carefully.
+Before posting a question in our [SAP Learning Group](https://groups.community.sap.com/t5/sap-learning-groups/ct-p/SAP-Learning), please **read** this troubleshooting guide **carefully**.
 
 First and foremost, make sure to check your cds version:
 
@@ -14,20 +14,22 @@ cds -v
 
 It should print something similair like this:
 ```bash
-@sap/cds: 6.1.3
-@sap/cds-compiler: 3.1.2
-@sap/cds-dk: 6.1.5
-@sap/cds-dk (global): 6.1.5
-@sap/cds-foss: 4.0.0
-@sap/cds-mtx: -- missing --
-@sap/eslint-plugin-cds: 2.5.0
+@cap-js/sqlite: 1.3.0
+@sap/cds: 7.3.0
+@sap/cds-compiler: 4.3.0
+@sap/cds-dk: 7.3.0
+@sap/cds-fiori: 1.1.0
+@sap/cds-foss: 4.0.2
+@sap/cds-mtxs: 1.12.0
+@sap/eslint-plugin-cds: 2.6.3
+Node.js: v18.14.2
 ...
 ```
 
-If your ```@sap/cds``` dependency is lower than 5.9.x, then please make sure to upgrade your cds packages:
+If your ```@sap/cds``` dependency is lower than 7.0.0, then please make sure to upgrade your cds packages:
 
 ```bash
-npm i @sap/cds-dk && npm i @sap/cds && npm update
+npm i @sap/cds-dk@7.3.0 && npm i @sap/cds@7.3.0 && npm update
 ```
 
 Verify your cds version again with ```cds -v```.
@@ -80,53 +82,44 @@ npm config set registry http://registry.npmjs.org/
 npm install
 ```
 
-## Issue: Approuter invalid redirect_uri:
+## Issue: CICD Build fails
 
-**SAP NOTE**: https://launchpad.support.sap.com/#/notes/2864831
+If your build fails with the following reason, then you have to adjust your `mta.yaml` file.
 
-Some learners also reported that there is currently an issue with the approuter: 
-
-    Error Message:  ```The redirect_uri has an invalid domain.```.
-
-### Solution:
-
-If you face this issue, you have add the ```oauth2-configuration``` to your ```uaa-service``` definition in the ```mta.yaml``` file:
-
-```NOTE: Please change the oauth2-configuration redirect-uri to your approuter's url!```
-
-```yaml
-        oauth2-configuration: # <-- add this
-          redirect-uris:
-          # example: - https://risk-management-approuter.cfapps.eu10-004.hana.ondemand.com/login/callback
-            - https://<approuter-route>/login/callback
+```
+[2023-10-10T12:47:53.139Z] info  mtaBuild - [2023-10-10 12:47:52]  INFO Cloud MTA Build Tool version 1.2.23
+[2023-10-10T12:47:53.172Z] info  mtaBuild - [2023-10-10 12:47:52]  INFO generating the "Makefile_20231010124752.mta" file...
+[2023-10-10T12:47:53.209Z] info  mtaBuild - [2023-10-10 12:47:52]  INFO done
+[2023-10-10T12:47:53.245Z] info  mtaBuild - [2023-10-10 12:47:52]  INFO executing the "make -f Makefile_20231010124752.mta p=CF mtar=risk-management.mtar strict=true mode= t=\"/home/jenkins/agent/workspace/risk-management-job\"" command...
+[2023-10-10T12:47:53.283Z] info  mtaBuild - [2023-10-10 12:47:52]  INFO validating the MTA project
+[2023-10-10T12:47:53.319Z] info  mtaBuild - [2023-10-10 12:47:52]  INFO running the "before-all" build...
+[2023-10-10T12:47:53.354Z] info  mtaBuild - [2023-10-10 12:47:52]  INFO executing the "npx cds build --production" command...
+[2023-10-10T12:47:54.321Z] error mtaBuild - npm ERR! could not determine executable to run
+[2023-10-10T12:47:54.357Z] info  mtaBuild - 
+[2023-10-10T12:47:54.394Z] error mtaBuild - npm ERR! A complete log of this run can be found in:
+[2023-10-10T12:47:54.428Z] error mtaBuild - npm ERR!     /home/mta/.npm/_logs/2023-10-10T12_47_52_982Z-debug-0.log
+[2023-10-10T12:47:54.463Z] error mtaBuild - .[2023-10-10 12:47:54] ERROR the "before-all"" build failed: could not execute the "npx cds build --production" command: exit status 1
+[2023-10-10T12:47:54.498Z] info  mtaBuild - make: *** [Makefile_20231010124752.mta:28: pre_build] Error 1
+[2023-10-10T12:47:54.533Z] info  mtaBuild - Error: could not build the MTA project: could not execute the "make -f Makefile_20231010124752.mta p=CF mtar=risk-management.mtar strict=true mode= t=\"/home/jenkins/agent/workspace/risk-management-job\"" command: exit status 2
 ```
 
-The ```uaa``` or nowadays ```auth``` resource should like like this:
+## Solution:
 
-```yaml
----
-resources:
+In your `mta.yaml` file, add the `npm ci` command to your `before-all` commands. It should look like the following:
 
-  - name: risk-management-auth
-    type: org.cloudfoundry.managed-service
-    parameters:
-      service: xsuaa
-      service-plan: application
-      path: ./xs-security.json
-      config:
-        xsappname: risk-management-${org}-${space}
-        tenant-mode: dedicated
-        role-collections:
-          - name: 'RiskManager-${space}'
-            description: Manage Risks
-            role-template-references:
-              - $XSAPPNAME.RiskManager
-          - name: 'RiskViewer-${space}'
-            description: View Risks
-            role-template-references:
-              - $XSAPPNAME.RiskViewer
-        oauth2-configuration: # <-- add this
-          redirect-uris:
-          # example: - https://risk-management-approuter.cfapps.eu10-004.hana.ondemand.com/login/callback
-            - https://<approuter-route>/login/callback
+```
+_schema-version: '3.1'
+ID: risk-management
+version: 3.0.0
+description: "Template for the Learning Journey Building side-by-side extensions on SAP BTP"
+parameters:
+  enable-parallel-deployments: true
+build-parameters:
+  before-all:
+    - builder: custom
+      commands:
+        - npm ci
+        - npx cds build --production
+modules:
+[...]
 ```
