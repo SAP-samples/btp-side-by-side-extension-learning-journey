@@ -33,7 +33,7 @@ git checkout <branch>
 To get support during the exercises, please [ask a question in our SAP BTP Learning Group](https://groups.community.sap.com/t5/sap-btp-learning/gh-p/SAP-BTP-Learning).
 
 ## Contributing
-If you have suggestions on how to improve the tutorial, you're welcome to provide your input [here](https://github.com/SAP-samples/extension-suite-learning-journey/issues).
+If you have suggestions on how to improve the tutorial, you're welcome to provide your input open up a pull request.
 
 If you wish to contribute code, offer fixes or improvements, please send a pull request. Due to legal reasons, contributors will be asked to accept a DCO when they create the first pull request to this project. This happens in an automated fashion during the submission process. SAP uses [the standard DCO text of the Linux Foundation](https://developercertificate.org/).
 
