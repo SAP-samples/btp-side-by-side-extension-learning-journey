@@ -6,7 +6,7 @@
   "license": "SAP SAMPLE CODE LICENSE",
   "repository": "https://github.com/SAP-samples/sap-learning-extension-suite",
   "dependencies": {
-    "@sap-cloud-sdk/http-client": "2.15.0",
+    "@sap-cloud-sdk/http-client": "3.8.0",
     "@sap/cds": "^7",
     "express": "^4"
   },
