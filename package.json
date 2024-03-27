@@ -7,7 +7,7 @@
   "repository": "https://github.com/SAP-samples/sap-learning-extension-suite",
   "dependencies": {
     "@sap-cloud-sdk/http-client": "2.15.0",
-    "@sap/cds": "7.2.0",
+    "@sap/cds": "7.8.0",
     "@sap/cds-dk": "7.6.0",
     "@sap-cloud-sdk/resilience": "3.12.0",
     "express": "^4"
