@@ -14,22 +14,16 @@ cds -v
 
 It should print something similair like this:
 ```bash
-@cap-js/sqlite: 1.3.0
-@sap/cds: 7.3.0
-@sap/cds-compiler: 4.3.0
-@sap/cds-dk: 7.3.0
-@sap/cds-fiori: 1.1.0
-@sap/cds-foss: 4.0.2
-@sap/cds-mtxs: 1.12.0
-@sap/eslint-plugin-cds: 2.6.3
-Node.js: v18.14.2
+...
+@sap/cds: 7.2.0
+@sap/cds-dk: 7.6.0
 ...
 ```
 
 If your ```@sap/cds``` dependency is lower than 7.0.0, then please make sure to upgrade your cds packages:
 
 ```bash
-npm i @sap/cds-dk@7.3.0 && npm i @sap/cds@7.3.0 && npm update
+npm i @sap/cds-dk@7.6.0 && npm i @sap/cds@7.2.0 && npm update
 ```
 
 Verify your cds version again with ```cds -v```.
