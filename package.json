@@ -7,7 +7,8 @@
   "repository": "https://github.com/SAP-samples/sap-learning-extension-suite",
   "dependencies": {
     "@sap-cloud-sdk/http-client": "3.6.0",
-    "@sap/cds": "^7",
+      "@sap/cds": "7.2.0",
+    "@sap/cds-dk": "7.6.0",
     "express": "^4",
     "@sap/cds-hana": "^2",
     "@sap/xssec": "^3",
@@ -15,7 +16,6 @@
   },
   "devDependencies": {
     "@cap-js/sqlite": "^1",
-    "@sap/cds-dk": "^7",
     "@sap/ux-specification": "^1.108.14"
   },
   "scripts": {
